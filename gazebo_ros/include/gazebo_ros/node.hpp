@@ -200,7 +200,7 @@ Node::SharedPtr Node::CreateWithArgs(Args && ... args)
   node_weak_ptr = node;
   // Parameter change callback
   auto param_change_callback =
-    [&node_weak_ptr](std::vector<rclcpp::Parameter> parameters) {
+    [node_weak_ptr](std::vector<rclcpp::Parameter> parameters) {
       auto result = rcl_interfaces::msg::SetParametersResult();
       result.successful = true;
 
